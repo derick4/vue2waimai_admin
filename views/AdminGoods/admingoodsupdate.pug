@@ -1,0 +1,40 @@
+extends ../common/common
+
+block admin
+ .mws-panel.grid_8
+  .mws-panel-header
+    span 修改商品信息
+  .mws-panel-body.no-padding
+    form.mws-form(action='/admin/dogoodsupdate' method="POST" enctype="multipart/form-data")
+      .mws-form-inline
+        .mws-form-row
+          label.mws-form-label 商品名称
+          .mws-form-item
+            input.small(type='text' name="foodname" value=`${data.foodname}`)
+        .mws-form-row
+          label.mws-form-label 原图片
+          .mws-form-item
+            img(src=`https://sqqproject.oss-cn-hangzhou.aliyuncs.com/${data.foodpic}`, alt="" style="width: 100px")
+        .mws-form-row
+          label.mws-form-label 更换新图片
+          .mws-form-item
+            input.small(type='file' name="foodpic")
+        .mws-form-row
+          label.mws-form-label 商品描述
+          .mws-form-item
+            input.small(type='text' name="descr" value=`${data.descr}`)
+        .mws-form-row
+          label.mws-form-label 单价
+          .mws-form-item
+            input.small(type='text' name="price" value=`${data.price}`)
+        //- .mws-form-row
+        //-   label.mws-form-label 所属商家
+        //-   .mws-form-item
+        //-     select(name="shoplist_id")
+        //-       option(value=`${shops[0].id}` selected) --#{shops[0].shopname}--
+        //-       - for (let v of shoplist)
+        //-         option(name="" value=`${v.id}`) --#{v.shopname}--
+        input(type="hidden" name="goodsid" value=`${data.id}`)
+      .mws-button-row
+        input.btn.btn-danger(type='submit' value='确认修改')
+        input.btn(type='reset' value='重置')

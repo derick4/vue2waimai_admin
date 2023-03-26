@@ -1,0 +1,32 @@
+extends ../common/common
+block admin 
+ .mws-panel.grid_8
+  .mws-panel-header
+    span 商家入驻
+  .mws-panel-body.no-padding
+    form.mws-form(action='/admin/shopdoupdate' method="POST" enctype="multipart/form-data")
+      .mws-form-inline
+        .mws-form-row
+          label.mws-form-label 店铺名称
+          .mws-form-item
+            input.large(type='text' name="shopname" value=`${data.shopname}`)
+        .mws-form-row
+          label.mws-form-label 品牌旧 logo 
+          .mws-form-item
+            img(src=`https://guishiyuan.oss-cn-beijing.aliyuncs.com/${data.logo}`, alt="" width="100px")
+        .mws-form-row
+          label.mws-form-label 新 logo 
+          .mws-form-item
+            input.large(type='file' name="logo")
+        .mws-form-row
+          label.mws-form-label 宣传语 
+          .mws-form-item
+            input.large(type='text' name="content" value=`${data.content}`)
+        .mws-form-row
+          label.mws-form-label 配送费 
+          .mws-form-item
+            input.large(type='text' name="fee" value=`${data.fee}`)
+      .mws-button-row
+        input(type="hidden" name="id" value=`${data.id}`)
+        input.btn.btn-danger(type='submit' value='更新')
+        input.btn(type='reset' value='重置')

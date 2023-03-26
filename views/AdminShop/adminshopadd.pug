@@ -1,0 +1,27 @@
+extends ../common/common
+block admin 
+ .mws-panel.grid_8
+  .mws-panel-header
+    span 商家入驻
+  .mws-panel-body.no-padding
+    form.mws-form(action='/admin/shopdoadd' method="POST" enctype="multipart/form-data")
+      .mws-form-inline
+        .mws-form-row
+          label.mws-form-label 店铺名称
+          .mws-form-item
+            input.large(type='text' name="shopname")
+        .mws-form-row
+          label.mws-form-label 品牌 logo 
+          .mws-form-item
+            input.large(type='file' name="logo")
+        .mws-form-row
+          label.mws-form-label 宣传语 
+          .mws-form-item
+            input.large(type='text' name="content")
+        .mws-form-row
+          label.mws-form-label 配送费 
+          .mws-form-item
+            input.large(type='text' name="fee")
+      .mws-button-row
+        input.btn.btn-danger(type='submit' value='入驻')
+        input.btn(type='reset' value='重置')

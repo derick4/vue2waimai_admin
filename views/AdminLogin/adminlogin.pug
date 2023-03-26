@@ -1,0 +1,32 @@
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width,initial-scale=1.0')
+    link(rel='stylesheet' type='text/css' href='/b/bootstrap/css/bootstrap.min.css' media='screen')
+    link(rel='stylesheet' type='text/css' href='/b/css/fonts/ptsans/stylesheet.css' media='screen')
+    link(rel='stylesheet' type='text/css' href='/b/css/fonts/icomoon/style.css' media='screen')
+    link(rel='stylesheet' type='text/css' href='/b/css/login.css' media='screen')
+    link(rel='stylesheet' type='text/css' href='/b/css/mws-theme.css' media='screen')
+    title #{title}
+  body
+    #mws-login-wrapper
+      #mws-login
+        h1 登录
+        .mws-login-lock
+          i.icon-lock
+        #mws-login-form
+          form.mws-form(action='/admin/dologin' method='post')
+            .mws-form-row
+              .mws-form-item
+                input.mws-login-username.required(type='text' name='uname' placeholder='请输入管理员名字')
+            .mws-form-row
+              .mws-form-item
+                input.mws-login-password.required(type='password' name='pwd' placeholder='请输入管理员密码')
+            .mws-form-row
+              input.btn.btn-success.mws-login-button(type='submit' value='登录')
+    script(src='/b/js/libs/jquery-1.8.3.min.js')
+    script(src='/b/js/libs/jquery.placeholder.min.js')
+    script(src='/b/custom-plugins/fileinput.js')
+    script(src='/b/jui/js/jquery-ui-effects.min.js')
+    script(src='/b/plugins/validate/jquery.validate-min.js')
+    script(src='/b/js/core/login.js')
